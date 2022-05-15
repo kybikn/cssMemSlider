@@ -14,40 +14,53 @@ html {
 
 body {
   display: flex;
+  animation: change-background 10s infinite linear;
+}
+
+@keyframes change-background {
+  from {
+    background-color: rgb(100, 114, 139);
+  }
+  50% {
+    background-color: rgb(69, 75, 116);
+  }
+  to {
+    background-color: rgb(86, 86, 156);
+  }
 }
 
 .container {
-  width: 100%;
-  height: 100vh;
-  max-width: 90rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  height: 100vh;
+  max-width: 90rem;
 }
 
 .wrapper {
-  background-color: black;
-  padding-left: 2.5vw;
-  padding-right: 2.5vw;
-  padding-bottom: 2vw;
-  padding-top: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-bottom: 2vw;
+  padding-top: 1vw;
+  background-color: black;
 }
 
 .slider {
-  overflow: hidden;
   max-width: 100%;
+  overflow: hidden;
 }
 
-.slides {
-  width: 400%;
+.photos {
   display: flex;
+  width: 400%;
 }
 
 .slide {
@@ -61,18 +74,93 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  /* animation: zooming 18s infinite; */
   border-radius: 4rem;
+  animation: zooming 18s infinite;
+}
+
+.slide:nth-child(1) .img {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) .img {
+  animation-delay: 5s;
+}
+
+.slide:nth-child(3) .img {
+  animation-delay: 10s;
+}
+
+.slide:nth-child(4) .img {
+  animation-delay: 15s;
+}
+
+@keyframes zooming {
+  80% {
+    transform: scale(0.95);
+  }
+}
+
+.slide:nth-child(1) .text {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) .text {
+  animation-delay: 5s;
+}
+
+.slide:nth-child(3) .text {
+  animation-delay: 10s;
+}
+
+.slide:nth-child(4) .text {
+  animation-delay: 15s;
 }
 
 .text {
-  margin-top: 0.3rem;
   display: flex;
-  color: white;
   font-size: 2.2rem;
+  margin-top: 0.3rem;
   align-items: center;
   cursor: pointer;
-  /* animation: zoom 12s infinite; */
+  color: white;
+  animation: zoom 12s infinite;
+}
+
+@keyframes zoom {
+  from {
+    color: white;
+    text-shadow: 0 0 0.3rem red;
+  }
+  40% {
+    color: royalblue;
+    text-shadow: 0 0 3rem red;
+  }
+  60% {
+    /* transform: scale(0.95); */
+    color: rgb(6, 39, 136);
+    text-shadow: 0.5rem 0.5rem 1rem red;
+  }
+  80% {
+    color: rgb(13, 186, 230);
+    text-shadow: -0.1rem -0.1rem 0.1rem red;
+  }
+  to {
+    color: rgb(15, 139, 155);
+    text-shadow: 0 0 3rem red;
+  }
+}
+
+span:hover {
+  text-transform: uppercase;
+  /* transition: 0.3s; */
+  animation: up 0.2s;
+  color: rgb(240, 45, 197);
+}
+
+@keyframes up {
+  50% {
+    filter: blur(15rem);
+  }
 }
 
 input {
@@ -80,19 +168,19 @@ input {
   visibility: hidden;
 }
 
-#dot1:checked ~ .slides .s1 {
+#dot1:checked ~ .photos .one {
   margin-left: 0;
 }
 
-#dot2:checked ~ .slides .s1 {
+#dot2:checked ~ .photos .one {
   margin-left: -25%;
 }
 
-#dot3:checked ~ .slides .s1 {
+#dot3:checked ~ .photos .one {
   margin-left: -50%;
 }
 
-#dot4:checked ~ .slides .s1 {
+#dot4:checked ~ .photos .one {
   margin-left: -75%;
 }
 
@@ -106,17 +194,65 @@ input {
 .controls {
   display: flex;
   margin-left: auto;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .bar {
+  /* border: 2rem transparent; */
+  position: relative;
   width: 1.7rem;
   height: 1.7rem;
   cursor: pointer;
   border-radius: 50%;
-  position: relative;
   margin-left: 2rem;
-  background: blue;
-  /* transition: background 0.5s; */
   margin-right: 0.2rem;
+  background: blue;
+  transition: background 0.5s;
+}
+
+.bar:hover {
+  /* border: 2rem transparent; */
+  transform: scale(1.33);
+  border: 0.15rem solid white;
+  background: white;
+}
+
+.bar:active {
+  background: red;
+}
+
+#dot1:checked ~ .slider-box .controls .dot1 {
+  background: transparent;
+  border: 0.2rem solid blue;
+}
+
+#dot2:checked ~ .slider-box .controls .dot2 {
+  background: transparent;
+  border: 0.2rem solid blue;
+}
+
+#dot3:checked ~ .slider-box .controls .dot3 {
+  background: transparent;
+  border: 0.2rem solid blue;
+}
+
+#dot4:checked ~ .slider-box .controls .dot4 {
+  background: transparent;
+  border: 0.2rem solid blue;
+}
+
+#dot1:checked ~ .slider-box .controls .dot1:hover {
+  border: 0.2rem solid white;
+}
+
+#dot2:checked ~ .slider-box .controls .dot2:hover {
+  border: 0.2rem solid white;
+}
+
+#dot3:checked ~ .slider-box .controls .dot3:hover {
+  border: 0.2rem solid white;
+}
+
+#dot4:checked ~ .slider-box .controls .dot4:hover {
+  border: 0.2rem solid white;
 }
