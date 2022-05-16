@@ -194,7 +194,7 @@ input {
 .controls {
   display: flex;
   margin-left: auto;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .bar {
@@ -207,11 +207,9 @@ input {
   margin-right: 0.2rem;
   background: blue;
   transition: background 0.5s;
-  /* border: 0.8rem solid black; */
 }
 
 .bar:hover {
-  /* border: 2rem transparent; */
   transform: scale(1.33);
   border: 0.15rem solid white;
   background: white;
@@ -219,6 +217,13 @@ input {
 
 .bar:active {
   background: red;
+}
+
+.area {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
 }
 
 #dot1:checked ~ .slider-box .controls .dot1 {
