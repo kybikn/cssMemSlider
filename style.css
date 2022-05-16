@@ -152,7 +152,6 @@ body {
 
 span:hover {
   text-transform: uppercase;
-  /* transition: 0.3s; */
   animation: up 0.2s;
   color: rgb(240, 45, 197);
 }
@@ -164,7 +163,6 @@ span:hover {
 }
 
 input {
-  position: absolute;
   visibility: hidden;
 }
 
@@ -198,7 +196,6 @@ input {
 }
 
 .bar {
-  position: relative;
   width: 1.7rem;
   height: 1.7rem;
   cursor: pointer;
@@ -221,9 +218,11 @@ input {
 
 .area {
   content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
+  display: inline-block;
+  margin-top: -50%;
+  margin-left: -50%;
+  width: 300%;
+  height: 300%;
 }
 
 #dot1:checked ~ .slider-box .controls .dot1 {
