@@ -261,9 +261,9 @@ input {
   border: 0.2rem solid white;
 }
 
-/* ------------------------767px-------------------------- */
+/* -------------------------------------------------- */
 
-@media (max-width: 77rem) {
+@media (max-width: 767px) {
   .wrapper {
     max-width: 100vw;
   }
